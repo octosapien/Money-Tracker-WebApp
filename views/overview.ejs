@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/style.css">
+    <title>Transaction Overview</title>
+</head>
+<body class="container">
+    <h1 class="my-4">Transaction Overview</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Description</th>
+                <th>Amount</th>
+                <th>Type</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% transactions.forEach(transaction => { %>
+                <tr>
+                    <td><%= transaction.description %></td>
+                    <td><%= transaction.amount %></td>
+                    <td><%= transaction.type %></td>
+                    <td>
+                        <a href="/edit-transaction/<%= transaction._id %>">Edit</a>
+                        <a href="/delete-transaction/<%= transaction._id %>">Delete</a>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+    
+    <a href="/">Go to Home</a>
+    <a href="/add-transaction">Add New Transaction</a>
+    <a href="/" class="btn btn-secondary">Back to Home</a>
+</body>
+</html>
